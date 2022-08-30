@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project SchemaVersion="2.44.53.0" ProjectRevision="60">
+  <Guid>1637dd8d-682f-4934-9796-1d9e3ddc1d56</Guid>
+  <ProjectFiles>
+    <ProjectFile Name="ProjectImages.neo" ModifiedDate="2020-11-10T10:19:59.3153044-05:00" Length="454" />
+    <ProjectFile Name="SntpClientRootComponent.neo" ModifiedDate="2020-11-10T10:19:56.8479159-05:00" Length="515" />
+    <ProjectFile Name="ProjectConfiguration.neo" ModifiedDate="2020-11-10T10:19:56.9257097-05:00" Length="6377" />
+    <ProjectFile Name="Security.neo" ModifiedDate="2020-11-10T10:19:56.970588-05:00" Length="449" />
+    <ProjectFile Name="Security.xml" ModifiedDate="2020-11-10T10:19:56.9815256-05:00" Length="693" />
+    <ProjectFile Name="LicenseRootComponent.neo" ModifiedDate="2020-11-10T10:20:00.4952668-05:00" Length="19387" />
+    <ProjectFile Name="Expressions.neo" ModifiedDate="2020-11-10T10:19:57.0174296-05:00" Length="457" />
+    <ProjectFile Name="MultipleLanguages.neo" ModifiedDate="2020-11-12T13:56:55.3614592-05:00" Length="6923" />
+    <ProjectFile Name="Tags.neo" ModifiedDate="2020-11-12T12:18:38.82528-05:00" Length="4897" />
+    <ProjectFile Name="Tags.Script.cs" ModifiedDate="2020-11-12T12:18:38.8302413-05:00" Length="779" />
+    <ProjectFile Name="AlarmServer.neo" ModifiedDate="2020-11-10T10:19:57.2727786-05:00" Length="1053" />
+    <ProjectFile Name="Screen1.neoxaml" ModifiedDate="2020-11-12T14:00:04.0605435-05:00" Length="796" />
+    <ProjectFile Name="Screen1.Script.cs" ModifiedDate="2020-11-12T14:00:04.0615085-05:00" Length="1356" />
+    <ProjectFile Name="Screen1.xaml" ModifiedDate="2020-11-12T14:00:04.0894682-05:00" Length="14300" />
+    <ProjectFile Name="Printer1.xml" ModifiedDate="2020-11-10T10:19:57.5380364-05:00" Length="850" />
+    <ProjectFile Name="Controller1.neo" ModifiedDate="2020-11-11T16:09:45.464567-05:00" Length="874" />
+    <ProjectFile Name="AE.neo" ModifiedDate="2020-11-12T14:54:19.4334697-05:00" Length="461" />
+    <ProjectFile Name="AE.Script.cs" ModifiedDate="2020-11-12T14:54:19.4344456-05:00" Length="11521" />
+  </ProjectFiles>
+</Project>

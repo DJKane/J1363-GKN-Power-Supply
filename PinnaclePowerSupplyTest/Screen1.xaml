@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?neo version='2.44.53.0'?>
+<nacs:ScreenWindow Topmost="False" Title="Screen1" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" WindowState="Normal" BorderStyle="ThreeDBorder" ScreenSize="800, 600" PopupScreen="False" StyleName="Default" IsCacheable="True" Width="800" Height="600" nai:SecurityProperties.SecurityGroupsRequired="None" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:nacs="clr-namespace:Neo.ApplicationFramework.Controls.Screen;assembly=Controls" xmlns:nai="clr-namespace:Neo.ApplicationFramework.Interfaces;assembly=Interfaces" xmlns:nacxs="clr-namespace:Neo.ApplicationFramework.Common.Xaml.Serializer;assembly=Common" xmlns:nac="clr-namespace:Neo.ApplicationFramework.Controls;assembly=Controls" xmlns:nac1="clr-namespace:Neo.ApplicationFramework.Common;assembly=Common" xmlns:nacw="clr-namespace:Neo.ApplicationFramework.Controls.WindowsControls;assembly=Controls" xmlns:nacd="clr-namespace:Neo.ApplicationFramework.Common.Data;assembly=CommonCF" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:nacc="clr-namespace:Neo.ApplicationFramework.Common.Converters;assembly=Common" xmlns:nacb="clr-namespace:Neo.ApplicationFramework.Common.Bevel;assembly=Common" xmlns:nata="clr-namespace:Neo.ApplicationFramework.Tools.Action;assembly=Tools" x:Class="Neo.ApplicationFramework.Generated.Screen1">
+  <nai:ScriptProperties.ScriptEvents>
+    <nai:ScriptEventList>
+      <nacxs:EventHandlerInfo EventName="Opened" MethodName="Screen1_Opened" />
+    </nai:ScriptEventList>
+  </nai:ScriptProperties.ScriptEvents>
+  <nacs:ElementCanvas Name="m_EditorCanvas" Width="800" Height="600" FocusVisualStyle="{x:Null}" AllowDrop="True" ClipToBounds="True" Focusable="True" TextOptions.TextFormattingMode="Ideal" TextOptions.TextRenderingMode="Auto" Panel.ZIndex="104">
+    <nac:Button Text="Get IP Address" RequiresTransparency="True" SymbolTransparent="False" FontSize="15" Name="m_GetIPButton" Width="125.128865979381" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" FocusVisualStyle="{x:Null}" RenderTransformOrigin="0.5,0.5" Visibility="Visible" Panel.ZIndex="1" Canvas.Left="9.53608247422681" Canvas.Top="8.8240979381443" Style="{nac1:StyleMarkupExtension Default}">
+      <nac:Button.TextDecorations>
+        <TextDecorationCollection />
+      </nac:Button.TextDecorations>
+      <nai:ScriptProperties.ScriptEvents>
+        <nai:ScriptEventList>
+          <nacxs:EventHandlerInfo EventName="Click" MethodName="GetIPButton_Click" />
+        </nai:ScriptEventList>
+      </nai:ScriptProperties.ScriptEvents>
+    </nac:Button>
+    <nac:Label MultiLine="True" WordWrap="True" Text="000.000.000.000" Background="#00FFFFFF" Foreground="#FF000000" FontFamily="Tahoma" FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" Padding="5,0,5,1" Name="m_AddressLabel" Width="Auto" Height="Auto" RenderTransformOrigin="0.5,0.5" Visibility="Visible" Panel.ZIndex="2" Canvas.Left="145.811855670103" Canvas.Top="13.7540979381443">
+      <nac:Label.TextDecorations>
+        <TextDecorationCollection />
+      </nac:Label.TextDecorations>
+    </nac:Label>
+    <nacw:CheckBox Text="Enable B" TextHorizontalAlignment="Left" TextVerticalAlignment="Top" BorderBrush="#FF8E8F8F" BorderThickness="1,1,1,1" Background="#FFF4F4F4" FontFamily="Tahoma" Padding="3,0,3,1" Name="m_EnableBCheckBox" Width="68.2149803543091" Height="15.4833333333333" RenderTransformOrigin="0.5,0.5" Visibility="Visible" Panel.ZIndex="4" Canvas.Left="588.75735395189" Canvas.Top="59.0824312714776" Content="Enable B">
+      <nacw:CheckBox.Resources>
+        <ResourceDictionary>
+          <nacc:VariantValueConverter x:Key="IsCheckedConverter" />
+        </ResourceDictionary>
+      </nacw:CheckBox.Resources>
+      <nacw:CheckBox.IsChecked>
+        <Binding Source="{x:Static nacd:DataItemProxyFactory.Instance}" Path="[Tags.EnableB].Value" Converter="{StaticResource IsCheckedConverter}" ValidatesOnExceptions="True">
+          <Binding.FallbackValue>
+            <s:Boolean>False</s:Boolean>
+          </Binding.FallbackValue>
+        </Binding>
+      </nacw:CheckBox.IsChecked>
+    </nacw:CheckBox>
+    <nacw:CheckBox Text="Enable A" TextHorizontalAlignment="Left" TextVerticalAlignment="Top" BorderBrush="#FF8E8F8F" BorderThickness="1,1,1,1" Background="#FFF4F4F4" FontFamily="Tahoma" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" Padding="3,0,3,1" Name="m_EnableACheckBox" Width="68.3383136876424" Height="15.4833333333333" RenderTransformOrigin="0.5,0.5" Visibility="Visible" Panel.ZIndex="5" Canvas.Left="588.634020618557" Canvas.Top="21.0824312714776" Content="Enable A">
+      <nacw:CheckBox.Resources>
+        <ResourceDictionary>
+          <nacc:VariantValueConverter x:Key="IsCheckedConverter" />
+        </ResourceDictionary>
+      </nacw:CheckBox.Resources>
+      <nacw:CheckBox.IsChecked>
+        <Binding Source="{x:Static nacd:DataItemProxyFactory.Instance}" Path="[Tags.EnableA].Value" Converter="{StaticResource IsCheckedConverter}" ValidatesOnExceptions="True">
+          <Binding.FallbackValue>
+            <s:Boolean>False</s:Boolean>
+          </Binding.FallbackValue>
+        </Binding>
+      </nacw:CheckBox.IsChecked>
+    </nacw:CheckBox>
+    <nac:AnalogNumericFX AutoStretchFont="False" DisplayFormat="Integer" NumberOfDecimals="0" Suffix="cA" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Tahoma" UndoLimit="1" Transparent="Visible" BorderBrush="#FF7F9DB9" BorderThickness="1,1,1,1" Foreground="#FF000000" FontSize="20" Padding="2,2,2,2" Name="m_CurrentAInput" Width="100" Height="30" RenderTransformOrigin="0.5,0.5" Visibility="Visible" Focusable="True" Panel.ZIndex="10" KeyboardNavigation.TabNavigation="None" Canvas.Left="676.417525773196" Canvas.Top="13.8240979381443">
+      <nac:AnalogNumericFX.Resources>
+        <ResourceDictionary>
+          <nacc:VariantValueConverter x:Key="ValueConverter" />
+        </ResourceDictionary>
+      </nac:AnalogNumericFX.Resources>
+      <nac:AnalogNumericFX.Value>
+        <Binding Source="{x:Static nacd:DataItemProxyFactory.Instance}" Path="[Tags.CurrentA].Value" Converter="{StaticResource ValueConverter}" ValidatesOnExceptions="True">
+          <Binding.FallbackValue>0</Binding.FallbackValue>
+        </Binding>
+      </nac:AnalogNumericFX.Value>
+      <nac:AnalogNumericFX.BevelEffectInfo>
+        <nacb:BevelEffectInfo Style="Sunken" Width="2" />
+      </nac:AnalogNumericFX.BevelEffectInfo>
+      <nac:AnalogNumericFX.TextDecorations>
+        <TextDecorationCollection />
+      </nac:AnalogNumericFX.TextDecorations>
+      <nac:AnalogNumericFX.Background>
+        <LinearGradientBrush StartPoint="0.5,1" EndPoint="0.5,0">
+          <LinearGradientBrush.GradientStops>
+            <GradientStopCollection>
+              <GradientStop Color="#FFFFFFFF" />
+              <GradientStop Color="#FFD4D0C8" Offset="1" />
+            </GradientStopCollection>
+          </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+      </nac:AnalogNumericFX.Background>
+    </nac:AnalogNumericFX>
+    <nac:AnalogNumericFX AutoStretchFont="False" DisplayFormat="Integer" NumberOfDecimals="0" Suffix="cA" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Tahoma" UndoLimit="1" Transparent="Visible" BorderBrush="#FF7F9DB9" BorderThickness="1,1,1,1" Foreground="#FF000000" FontSize="20" Padding="2,2,2,2" Name="m_CurrentBInput" Width="100" Height="30" RenderTransformOrigin="0.5,0.5" Visibility="Visible" Focusable="True" Panel.ZIndex="11" KeyboardNavigation.TabNavigation="None" Canvas.Left="676.417525773196" Canvas.Top="51.8240979381443">
+      <nac:AnalogNumericFX.Resources>
+        <ResourceDictionary>
+          <nacc:VariantValueConverter x:Key="ValueConverter" />
+        </ResourceDictionary>
+      </nac:AnalogNumericFX.Resources>
+      <nac:AnalogNumericFX.Value>
+        <Binding Source="{x:Static nacd:DataItemProxyFactory.Instance}" Path="[Tags.CurrentB].Value" Converter="{StaticResource ValueConverter}" ValidatesOnExceptions="True">
+          <Binding.FallbackValue>0</Binding.FallbackValue>
+        </Binding>
+      </nac:AnalogNumericFX.Value>
+      <nac:AnalogNumericFX.BevelEffectInfo>
+        <nacb:BevelEffectInfo Style="Sunken" Width="2" />
+      </nac:AnalogNumericFX.BevelEffectInfo>
+      <nac:AnalogNumericFX.TextDecorations>
+        <TextDecorationCollection />
+      </nac:AnalogNumericFX.TextDecorations>
+      <nac:AnalogNumericFX.Background>
+        <LinearGradientBrush StartPoint="0.5,1" EndPoint="0.5,0">
+          <LinearGradientBrush.GradientStops>
+            <GradientStopCollection>
+              <GradientStop Color="#FFFFFFFF" />
+              <GradientStop Color="#FFD4D0C8" Offset="1" />
+            </GradientStopCollection>
+          </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+      </nac:AnalogNumericFX.Background>
+    </nac:AnalogNumericFX>
+    <nac:TextBox MultiLine="True" WordWrap="True" Text="?" UndoLimit="1" Transparent="Visible" TextWrapping="Wrap" MaxLines="2147483647" IsReadOnly="False" AcceptsReturn="True" BorderBrush="#FF8FA4BE" Name="m_ErrorTextBox" Width="749.484536082474" Height="482.319587628866" RenderTransformOrigin="0.5,0.5" Visibility="Visible" IsEnabled="False" Focusable="True" Panel.ZIndex="12" Canvas.Left="26.9329896907217" Canvas.Top="94.8421391752577" nac:EnabledProperties.EnabledDynamicsValue="False" />
+    <nac:Button Text="Current Mode A" RequiresTransparency="True" SymbolTransparent="False" FontSize="15" Name="m_Button" Width="139.626288659794" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" FocusVisualStyle="{x:Null}" RenderTransformOrigin="0.5,0.5" Visibility="Visible" Panel.ZIndex="13" Canvas.Left="432.860824742268" Canvas.Top="8.8240979381443" Style="{nac1:StyleMarkupExtension Default}">
+      <nac:Button.Resources>
+        <ResourceDictionary>
+          <nacc:VariantValueConverter x:Key="ValueConverter" />
+        </ResourceDictionary>
+      </nac:Button.Resources>
+      <nac:Button.Value>
+        <Binding Source="{x:Static nacd:DataItemProxyFactory.Instance}" Path="[Tags.SetCurrentModeA].Value" Converter="{StaticResource ValueConverter}" ValidatesOnExceptions="True">
+          <Binding.FallbackValue>
+            <s:Double>0</s:Double>
+          </Binding.FallbackValue>
+        </Binding>
+      </nac:Button.Value>
+      <nac:Button.TextDecorations>
+        <TextDecorationCollection />
+      </nac:Button.TextDecorations>
+      <nai:ActionProperties.Actions>
+        <nai:ActionList>
+          <nata:Action Name="Set Tag">
+            <nata:Action.ActionMethodInfo>
+              <nata:ActionMethodInfo Name="SetTag" ObjectName="" EventName="PreviewMouseDown" ReferenceType="ThisTag" ObjectParentName="" ObjectPathProvider="" ObjectPath="" ExplicitAuditTrail="False" />
+            </nata:Action.ActionMethodInfo>
+          </nata:Action>
+          <nata:Action Name="Reset Tag">
+            <nata:Action.ActionMethodInfo>
+              <nata:ActionMethodInfo Name="ResetTag" ObjectName="" EventName="PreviewMouseUp" ReferenceType="ThisTag" ObjectParentName="" ObjectPathProvider="" ObjectPath="" ExplicitAuditTrail="False" />
+            </nata:Action.ActionMethodInfo>
+          </nata:Action>
+          <nata:Action Name="Reset Tag">
+            <nata:Action.ActionMethodInfo>
+              <nata:ActionMethodInfo Name="ResetTag" ObjectName="" EventName="MouseLeave" ReferenceType="ThisTag" ObjectParentName="" ObjectPathProvider="" ObjectPath="" ExplicitAuditTrail="False" />
+            </nata:Action.ActionMethodInfo>
+          </nata:Action>
+        </nai:ActionList>
+      </nai:ActionProperties.Actions>
+    </nac:Button>
+    <nac:Button Text="Current Mode B" RequiresTransparency="True" SymbolTransparent="False" FontSize="15" Name="m_Button1" Width="139.626288659794" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" FocusVisualStyle="{x:Null}" RenderTransformOrigin="0.5,0.5" Visibility="Visible" Panel.ZIndex="14" Canvas.Left="432.860824742268" Canvas.Top="46.8240979381443" Style="{nac1:StyleMarkupExtension Default}">
+      <nac:Button.Resources>
+        <ResourceDictionary>
+          <nacc:VariantValueConverter x:Key="ValueConverter" />
+        </ResourceDictionary>
+      </nac:Button.Resources>
+      <nac:Button.Value>
+        <Binding Source="{x:Static nacd:DataItemProxyFactory.Instance}" Path="[Tags.SetCurrentModeB].Value" Converter="{StaticResource ValueConverter}" ValidatesOnExceptions="True">
+          <Binding.FallbackValue>
+            <s:Double>0</s:Double>
+          </Binding.FallbackValue>
+        </Binding>
+      </nac:Button.Value>
+      <nac:Button.TextDecorations>
+        <TextDecorationCollection />
+      </nac:Button.TextDecorations>
+      <nai:ActionProperties.Actions>
+        <nai:ActionList>
+          <nata:Action Name="Set Tag">
+            <nata:Action.ActionMethodInfo>
+              <nata:ActionMethodInfo Name="SetTag" ObjectName="" EventName="PreviewMouseDown" ReferenceType="ThisTag" ObjectParentName="" ObjectPathProvider="" ObjectPath="" ExplicitAuditTrail="False" />
+            </nata:Action.ActionMethodInfo>
+          </nata:Action>
+          <nata:Action Name="Reset Tag">
+            <nata:Action.ActionMethodInfo>
+              <nata:ActionMethodInfo Name="ResetTag" ObjectName="" EventName="PreviewMouseUp" ReferenceType="ThisTag" ObjectParentName="" ObjectPathProvider="" ObjectPath="" ExplicitAuditTrail="False" />
+            </nata:Action.ActionMethodInfo>
+          </nata:Action>
+          <nata:Action Name="Reset Tag">
+            <nata:Action.ActionMethodInfo>
+              <nata:ActionMethodInfo Name="ResetTag" ObjectName="" EventName="MouseLeave" ReferenceType="ThisTag" ObjectParentName="" ObjectPathProvider="" ObjectPath="" ExplicitAuditTrail="False" />
+            </nata:Action.ActionMethodInfo>
+          </nata:Action>
+        </nai:ActionList>
+      </nai:ActionProperties.Actions>
+    </nac:Button>
+  </nacs:ElementCanvas>
+</nacs:ScreenWindow>

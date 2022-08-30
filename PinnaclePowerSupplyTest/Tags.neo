@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?neo version='2.44.53.0'?>
+<NeoItem d1p1:Serializer="Neo.ApplicationFramework.Common.Serialization.ObjectSerializer" xmlns:d1p1="urn:Neo.ApplicationFramework.Serializer">
+  <Object d1p1:type="Neo.ApplicationFramework.Tools.OpcClient.GlobalController, ToolsCF, Version=2.44.53.0, Culture=neutral, PublicKeyToken=null" d1p1:Site.Name="Tags" ProjectGuid="1637dd8d-682f-4934-9796-1d9e3ddc1d56">
+    <GlobalDataItems>
+      <Object d1p1:type="Neo.ApplicationFramework.Tools.OpcClient.GlobalDataItem, ToolsCF, Version=2.44.53.0, Culture=neutral, PublicKeyToken=null" GlobalDataType="DT_BIT" d1p1:Site.Name="EnableA" ProjectGuid="1637dd8d-682f-4934-9796-1d9e3ddc1d56" IsExposed="False">
+        <GlobalDataSubItems>
+          <Object d1p1:type="Neo.ApplicationFramework.Tools.OpcClient.GlobalDataSubItem, ToolsCF, Version=2.44.53.0, Culture=neutral, PublicKeyToken=null" />
+        </GlobalDataSubItems>
+      </Object>
+      <Object d1p1:type="Neo.ApplicationFramework.Tools.OpcClient.GlobalDataItem, ToolsCF, Version=2.44.53.0, Culture=neutral, PublicKeyToken=null" GlobalDataType="DT_UINTEGER4" d1p1:Site.Name="CurrentA" ProjectGuid="1637dd8d-682f-4934-9796-1d9e3ddc1d56" IsExposed="False">
+        <GlobalDataSubItems>
+          <Object d1p1:type="Neo.ApplicationFramework.Tools.OpcClient.GlobalDataSubItem, ToolsCF, Version=2.44.53.0, Culture=neutral, PublicKeyToken=null" />
+        </GlobalDataSubItems>
+      </Object>
+      <Object d1p1:type="Neo.ApplicationFramework.Tools.OpcClient.GlobalDataItem, ToolsCF, Version=2.44.53.0, Culture=neutral, PublicKeyToken=null" GlobalDataType="DT_UINTEGER4" d1p1:Site.Name="CurrentB" ProjectGuid="1637dd8d-682f-4934-9796-1d9e3ddc1d56" IsExposed="False">
+        <GlobalDataSubItems>
+          <Object d1p1:type="Neo.ApplicationFramework.Tools.OpcClient.GlobalDataSubItem, ToolsCF, Version=2.44.53.0, Culture=neutral, PublicKeyToken=null" />
+        </GlobalDataSubItems>
+      </Object>
+      <Object d1p1:type="Neo.ApplicationFramework.Tools.OpcClient.GlobalDataItem, ToolsCF, Version=2.44.53.0, Culture=neutral, PublicKeyToken=null" GlobalDataType="DT_BIT" d1p1:Site.Name="EnableB" ProjectGuid="1637dd8d-682f-4934-9796-1d9e3ddc1d56" IsExposed="False">
+        <GlobalDataSubItems>
+          <Object d1p1:type="Neo.ApplicationFramework.Tools.OpcClient.GlobalDataSubItem, ToolsCF, Version=2.44.53.0, Culture=neutral, PublicKeyToken=null" />
+        </GlobalDataSubItems>
+      </Object>
+      <Object d1p1:type="Neo.ApplicationFramework.Tools.OpcClient.GlobalDataItem, ToolsCF, Version=2.44.53.0, Culture=neutral, PublicKeyToken=null" GlobalDataType="DT_BIT" d1p1:Site.Name="SetCurrentModeA" ProjectGuid="1637dd8d-682f-4934-9796-1d9e3ddc1d56" IsExposed="False">
+        <GlobalDataSubItems>
+          <Object d1p1:type="Neo.ApplicationFramework.Tools.OpcClient.GlobalDataSubItem, ToolsCF, Version=2.44.53.0, Culture=neutral, PublicKeyToken=null" />
+        </GlobalDataSubItems>
+      </Object>
+      <Object d1p1:type="Neo.ApplicationFramework.Tools.OpcClient.GlobalDataItem, ToolsCF, Version=2.44.53.0, Culture=neutral, PublicKeyToken=null" GlobalDataType="DT_BIT" d1p1:Site.Name="SetCurrentModeB" ProjectGuid="1637dd8d-682f-4934-9796-1d9e3ddc1d56" IsExposed="False">
+        <GlobalDataSubItems>
+          <Object d1p1:type="Neo.ApplicationFramework.Tools.OpcClient.GlobalDataSubItem, ToolsCF, Version=2.44.53.0, Culture=neutral, PublicKeyToken=null" />
+        </GlobalDataSubItems>
+      </Object>
+    </GlobalDataItems>
+    <PollGroups>
+      <Object d1p1:type="Neo.ApplicationFramework.Tools.OpcClient.PollGroup, ToolsCF, Version=2.44.53.0, Culture=neutral, PublicKeyToken=null" Name="PollGroup1" Interval="500" d1p1:Site.Name="PollGroup1" ProjectGuid="1637dd8d-682f-4934-9796-1d9e3ddc1d56" />
+      <Object d1p1:type="Neo.ApplicationFramework.Tools.OpcClient.PollGroup, ToolsCF, Version=2.44.53.0, Culture=neutral, PublicKeyToken=null" Name="PollGroup2" Interval="500" d1p1:Site.Name="PollGroup2" ProjectGuid="1637dd8d-682f-4934-9796-1d9e3ddc1d56" />
+      <Object d1p1:type="Neo.ApplicationFramework.Tools.OpcClient.PollGroup, ToolsCF, Version=2.44.53.0, Culture=neutral, PublicKeyToken=null" Name="PollGroup3" Interval="500" d1p1:Site.Name="PollGroup3" ProjectGuid="1637dd8d-682f-4934-9796-1d9e3ddc1d56" />
+      <Object d1p1:type="Neo.ApplicationFramework.Tools.OpcClient.PollGroup, ToolsCF, Version=2.44.53.0, Culture=neutral, PublicKeyToken=null" Name="PollGroup4" Interval="500" d1p1:Site.Name="PollGroup4" ProjectGuid="1637dd8d-682f-4934-9796-1d9e3ddc1d56" />
+      <Object d1p1:type="Neo.ApplicationFramework.Tools.OpcClient.PollGroup, ToolsCF, Version=2.44.53.0, Culture=neutral, PublicKeyToken=null" Name="PollGroup5" Interval="500" d1p1:Site.Name="PollGroup5" ProjectGuid="1637dd8d-682f-4934-9796-1d9e3ddc1d56" />
+    </PollGroups>
+  </Object>
+</NeoItem>
