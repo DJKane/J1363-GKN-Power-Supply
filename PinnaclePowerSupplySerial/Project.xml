@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project SchemaVersion="2.46.49.0" ProjectRevision="86">
+  <Guid>1637dd8d-682f-4934-9796-1d9e3ddc1d56</Guid>
+  <ProjectFiles>
+    <ProjectFile Name="ProjectImages.neo" ModifiedDate="2022-08-30T09:57:04.6873834-07:00" Length="454" />
+    <ProjectFile Name="SntpClientRootComponent.neo" ModifiedDate="2022-08-30T09:57:04.9225986-07:00" Length="515" />
+    <ProjectFile Name="ProjectConfiguration.neo" ModifiedDate="2022-08-30T09:57:04.656151-07:00" Length="6377" />
+    <ProjectFile Name="Security.neo" ModifiedDate="2022-08-30T09:57:04.8630893-07:00" Length="449" />
+    <ProjectFile Name="Security.xml" ModifiedDate="2022-08-30T09:57:04.887489-07:00" Length="693" />
+    <ProjectFile Name="LicenseRootComponent.neo" ModifiedDate="2022-09-07T08:48:29.0145168-07:00" Length="21026" />
+    <ProjectFile Name="Expressions.neo" ModifiedDate="2022-08-30T09:57:04.4531431-07:00" Length="457" />
+    <ProjectFile Name="MultipleLanguages.neo" ModifiedDate="2022-08-30T09:57:04.554647-07:00" Length="6923" />
+    <ProjectFile Name="Tags.neo" ModifiedDate="2022-09-07T08:48:29.3892991-07:00" Length="4897" />
+    <ProjectFile Name="Tags.Script.cs" ModifiedDate="2022-09-07T08:48:29.390276-07:00" Length="779" />
+    <ProjectFile Name="AlarmServer.neo" ModifiedDate="2022-08-30T09:57:04.2589202-07:00" Length="1053" />
+    <ProjectFile Name="CloudConfiguration.neo" ModifiedDate="2022-09-07T08:48:29.5161788-07:00" Length="2486" />
+    <ProjectFile Name="Screen1.neoxaml" ModifiedDate="2022-09-07T08:50:31.9945216-07:00" Length="796" />
+    <ProjectFile Name="Screen1.Script.cs" ModifiedDate="2022-09-07T08:50:31.9954722-07:00" Length="1339" />
+    <ProjectFile Name="Screen1.xaml" ModifiedDate="2022-09-07T08:50:32.0608641-07:00" Length="14144" />
+    <ProjectFile Name="Printer1.xml" ModifiedDate="2022-08-30T09:57:04.6014957-07:00" Length="850" />
+    <ProjectFile Name="Controller1.neo" ModifiedDate="2022-09-07T08:48:30.5068187-07:00" Length="888" />
+    <ProjectFile Name="AE.neo" ModifiedDate="2022-09-07T08:51:17.420446-07:00" Length="461" />
+    <ProjectFile Name="AE.Script.cs" ModifiedDate="2022-09-07T08:51:17.4223981-07:00" Length="14152" />
+  </ProjectFiles>
+</Project>
