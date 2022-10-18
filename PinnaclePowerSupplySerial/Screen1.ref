@@ -5,4 +5,5 @@
   <Type AssemblyQualifiedName="Neo.ApplicationFramework.Controls.WindowsControls.CheckBox, Controls, Version=2.46.49.0, Culture=neutral, PublicKeyToken=null" />
   <Type AssemblyQualifiedName="Neo.ApplicationFramework.Controls.AnalogNumericFX, Controls, Version=2.46.49.0, Culture=neutral, PublicKeyToken=null" />
   <Type AssemblyQualifiedName="Neo.ApplicationFramework.Controls.TextBox, Controls, Version=2.46.49.0, Culture=neutral, PublicKeyToken=null" />
+  <Type AssemblyQualifiedName="Neo.ApplicationFramework.Controls.Symbol.Symbol, Controls, Version=2.46.49.0, Culture=neutral, PublicKeyToken=null" />
 </Types>

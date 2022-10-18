@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<CrossReferences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="2.44.53.0">
+<CrossReferences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="2.46.49.0">
   <Categories>
     <Category Name="Alias">
       <Items />
@@ -35,6 +35,12 @@
       <Items />
     </Category>
     <Category Name="StructuredTag">
+      <Items />
+    </Category>
+    <Category Name="TextIDs">
+      <Items />
+    </Category>
+    <Category Name="TextLibrary">
       <Items />
     </Category>
   </Categories>

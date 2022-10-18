@@ -2,3 +2,4 @@ Temp/
 *.~cfg
 *.temp.cs
 BuildFiles/
+Symbols/
