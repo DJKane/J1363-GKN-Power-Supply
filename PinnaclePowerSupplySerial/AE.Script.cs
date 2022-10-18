@@ -41,8 +41,8 @@ namespace Neo.ApplicationFramework.Generated
 				Globals.Tags.SetCurrentModeB.ValueChange += (s, e) => { if (Globals.Tags.SetCurrentModeB.Value.Bool == true) SetRegulationMode(SideB, RegulationMode.Current); };
 				Globals.Tags.EnableA.ValueChange += (s, e) => SetEnable(SideA, Globals.Tags.EnableA.Value.Bool);
 				Globals.Tags.EnableB.ValueChange += (s, e) => SetEnable(SideB, Globals.Tags.EnableB.Value.Bool);
-				Globals.Tags.SetSPA.ValueChange += (s, e) => { if (Globals.Tags.SetSPA.Value.Bool == true) SetSetpoint(SideA, Globals.Tags.CurrentA); };
-				Globals.Tags.SetSPB.ValueChange += (s, e) => { if (Globals.Tags.SetSPB.Value.Bool == true) SetSetpoint(SideB, Globals.Tags.CurrentB); };
+				Globals.Tags.SetSPA.ValueChange += (s, e) => { if (Globals.Tags.SetSPA.Value.Bool == true) SetSetpoint(SideA, Globals.Tags.CurrentA.Value.UInt); };
+				Globals.Tags.SetSPB.ValueChange += (s, e) => { if (Globals.Tags.SetSPB.Value.Bool == true) SetSetpoint(SideB, Globals.Tags.CurrentB.Value.UInt); };
 				Initialized = true;
 			}
 			Handle(new Exception("Initialized"));
@@ -142,7 +142,8 @@ namespace Neo.ApplicationFramework.Generated
 				serial.Read(response, 0, bytes);
 				
 				//Checksum
-				checksum = 0;
+				int checksum = 0;
+				int i = 0;
 				for(i = 0; i < bytes; i++)
 				{
 					checksum ^= response[i];
