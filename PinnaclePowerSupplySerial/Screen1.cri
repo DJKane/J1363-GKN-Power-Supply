@@ -33,6 +33,8 @@
         <Item Target="Screen1.ErrorTextBox" TargetProperty="FontFamily" Source="TAHOMA.TTF" />
         <Item Target="Screen1.Button" TargetProperty="FontFamily" Source="TAHOMA.TTF" />
         <Item Target="Screen1.Button1" TargetProperty="FontFamily" Source="TAHOMA.TTF" />
+        <Item Target="Screen1.Button2" TargetProperty="FontFamily" Source="TAHOMA.TTF" />
+        <Item Target="Screen1.Button3" TargetProperty="FontFamily" Source="TAHOMA.TTF" />
       </Items>
     </Category>
     <Category Name="GlobalDataItem">
@@ -43,6 +45,9 @@
         <Item Target="Screen1.CurrentBInput" TargetProperty="Value" Source="Tags.CurrentB" />
         <Item Target="Screen1.Button" TargetProperty="Value" Source="Tags.SetCurrentModeA" />
         <Item Target="Screen1.Button1" TargetProperty="Value" Source="Tags.SetCurrentModeB" />
+        <Item Target="Screen1.Button2" TargetProperty="Value" Source="Tags.SetSPA" />
+        <Item Target="Screen1.Button3" TargetProperty="Value" Source="Tags.SetSPB" />
+        <Item Target="Screen1.MultiPicture20" TargetProperty="Value" Source="Tags.Sending" />
       </Items>
     </Category>
     <Category Name="IntegratorSwapActiveProjectAction">
@@ -66,7 +71,7 @@
     <Category Name="Screen">
       <Items>
         <Item xsi:type="ScreenObjectsCrossReferenceItem">
-          <ObjectsCount>9</ObjectsCount>
+          <ObjectsCount>12</ObjectsCount>
           <ScreenName>Screen1</ScreenName>
         </Item>
         <Item xsi:type="ScreenIDItem" ScreenID="">
@@ -81,7 +86,17 @@
       <Items />
     </Category>
     <Category Name="Symbol">
-      <Items />
+      <Items>
+        <Item xsi:type="SymbolItem" Target="Screen1.MultiPicture20" Source="led_white_off" Width="100" Height="100" IsAnimated="false" />
+        <Item xsi:type="SymbolItem" Target="Screen1.MultiPicture20" Source="led_white_off" Width="100" Height="100" IsAnimated="false" />
+        <Item xsi:type="SymbolItem" Target="Screen1.MultiPicture20" Source="led_white" Width="100" Height="100" IsAnimated="false" />
+        <Item xsi:type="SymbolItem" Target="Screen1.MultiPicture20" Source="led_red" Width="100" Height="100" IsAnimated="false" />
+        <Item xsi:type="SymbolItem" Target="Screen1.MultiPicture20" Source="led_orange" Width="100" Height="100" IsAnimated="false" />
+        <Item xsi:type="SymbolItem" Target="Screen1.MultiPicture20" Source="led_yellow" Width="100" Height="100" IsAnimated="false" />
+        <Item xsi:type="SymbolItem" Target="Screen1.MultiPicture20" Source="led_blue" Width="100" Height="100" IsAnimated="false" />
+        <Item xsi:type="SymbolItem" Target="Screen1.MultiPicture20" Source="led_purple" Width="100" Height="100" IsAnimated="false" />
+        <Item xsi:type="SymbolItem" Target="Screen1.MultiPicture20" Source="led_green" Width="100" Height="100" IsAnimated="false" />
+      </Items>
     </Category>
     <Category Name="TextIDs">
       <Items />

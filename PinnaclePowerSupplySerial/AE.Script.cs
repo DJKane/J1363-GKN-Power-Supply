@@ -14,7 +14,6 @@ namespace Neo.ApplicationFramework.Generated
 	using Neo.ApplicationFramework.Common.Graphics.Logic;
 	using Neo.ApplicationFramework.Controls;
 	using Neo.ApplicationFramework.Interfaces;
-	//using System.Net.Sockets;
 	using System.IO.Ports;
 	using Core.Api.DataSource;
 	using System.ComponentModel;
@@ -22,21 +21,17 @@ namespace Neo.ApplicationFramework.Generated
 
 	public partial class AE
 	{
-		//public const string IP = "192.168.254.30";
-		//public const int PORT = 502;
 		public const byte SideA = 1;
 		public const byte SideB = 16;
 		static SerialPort serial;
-		//static TcpClient tcp;
-		//static UInt16 NextTransactionId = 0;
-		public static bool Initialized = false;
 		public static TimeSpan Timeout = TimeSpan.FromSeconds(0.5);
-		private static System.Diagnostics.Stopwatch timer = new System.Diagnostics.Stopwatch();
+		public static Stopwatch timer = new Stopwatch();
+		
+		public static bool Initialized = false;
 
 		public delegate void ErrorEventHandler(Exception x);
 		public static event ErrorEventHandler Error;
 
-		//Initialize
 		public static void Initialize()
 		{
 			if (!Initialized)
@@ -46,8 +41,8 @@ namespace Neo.ApplicationFramework.Generated
 				Globals.Tags.SetCurrentModeB.ValueChange += (s, e) => { if (Globals.Tags.SetCurrentModeB.Value.Bool == true) SetRegulationMode(SideB, RegulationMode.Current); };
 				Globals.Tags.EnableA.ValueChange += (s, e) => SetEnable(SideA, Globals.Tags.EnableA.Value.Bool);
 				Globals.Tags.EnableB.ValueChange += (s, e) => SetEnable(SideB, Globals.Tags.EnableB.Value.Bool);
-				Globals.Tags.CurrentA.ValueChange += (s, e) => SetSetpoint(SideA, Globals.Tags.CurrentA.Value.UInt);
-				Globals.Tags.CurrentB.ValueChange += (s, e) => SetSetpoint(SideB, Globals.Tags.CurrentB.Value.UInt);
+				Globals.Tags.SetSPA.ValueChange += (s, e) => { if (Globals.Tags.SetSPA.Value.Bool == true) SetSetpoint(SideA, Globals.Tags.CurrentA.Value.UInt); };
+				Globals.Tags.SetSPB.ValueChange += (s, e) => { if (Globals.Tags.SetSPB.Value.Bool == true) SetSetpoint(SideB, Globals.Tags.CurrentB.Value.UInt); };
 				Initialized = true;
 			}
 			Handle(new Exception("Initialized"));
@@ -56,6 +51,19 @@ namespace Neo.ApplicationFramework.Generated
 		{
 			serial = new SerialPort("COM1", 115200, Parity.Odd, 8, StopBits.One);
 			serial.Open();
+			serial.WriteTimeout =
+			serial.ReadTimeout = (int)Timeout.TotalMilliseconds;
+			serial.DataReceived += new SerialDataReceivedEventHandler(serial_DataReceived);
+		}
+
+		public void CheckTimeout()
+		{
+			if (Globals.Tags.Sending.Value.Bool == true && timer.Elapsed > Timeout)
+			{
+				Globals.Tags.Sending.Value = false;
+				Handle(new Exception("Serial Timeout"));
+				timer.Stop();
+			}
 		}
 
 		public static void SetRegulationMode(byte side, RegulationMode mode)
@@ -109,173 +117,68 @@ namespace Neo.ApplicationFramework.Generated
 				
 				//Send
 				serial.Write(packet, 0, packet.Length);
-				
-				//Receive
-				byte[] response = new byte[255];
 				timer.Reset();
 				timer.Start();
-				while (serial.Read(response, 0, 255) == 0)
-				{
-					if (timer.Elapsed > Timeout)
-					{
-						timer.Stop();
-						throw new Exception("Serial Timeout");
-					}
-				}
-				if (response.Length < 4)
-					throw new Exception("Bad Response: Too short");
 				
-				//Checksum
-				checksum = 0;
-				for(i = 0; i < response.Length; i++)
-				{
-					checksum ^= response[i];
-				}
-				if (checksum != 0)
-					throw new Exception("Checksum failed");
-				
-				//Get Length
-				i = 2;
-				length = response[0] & 7;
-				if (length == 7)
-				{
-					i = 3;
-					length = response[2];
-				}
-				
-				
-
-				//Check Packet Validity
-				if (length != response.Length - i - 1)
-					throw new Exception("Bad Response: Packet claimed " + length + " bytes but contained " + (response.Length - i - 1) + " bytes");
-
-				//Error Packet
-				if (response[i] > 0)
-					throw new Exception("Error Code Returned: " + response[i]);
-
-				//Get response data
-				var responseData = new byte[length];
-				for (int j = 0; j < length; j++)
-					responseData[j] = response[i + j];
+				Globals.Tags.Sending.Value = true;
 			}
 			catch (Exception x)
 			{
 				Handle(x);
 			}
 		}
-		/*
-		public static void GetIpAddress(Action<string> callback)
+		private	static void serial_DataReceived(object sender, SerialDataReceivedEventArgs e)
 		{
-			SendCommand(0, Command.ReportSystemControl, new byte[] { (byte)ReportSubCommand.IpAddress }, responseData =>
+			try
+			{
+				Globals.Tags.Sending.Value = false;
+				timer.Stop();
+				
+				int bytes = serial.BytesToRead;
+				if (bytes < 4)
+					throw new Exception("Bad Response: Too short");
+				
+				byte[] response = new byte[bytes];
+				serial.Read(response, 0, bytes);
+				
+				//Checksum
+				int checksum = 0;
+				int i = 0;
+				for(i = 0; i < bytes; i++)
 				{
-				if (responseData == null)
-				{
-					callback(string.Empty);
-					return;
+					checksum ^= response[i];
 				}
-				if (responseData.Length != 4)
+				if (checksum != 0)
+					throw new Exception("Bad Response: Checksum failed");
+				
+				//Get Length
+				i = 2;
+				int length = response[0] & 7;
+				if (length == 7)
 				{
-					Handle(new Exception("Wrong data length: " + responseData.Length));
-					callback(string.Empty);
-					return;
+					i = 3;
+					length = response[2];
 				}
-				callback(responseData[3] + "." + responseData[2] + "." + responseData[1] + "." + responseData[0]);
-				});
+
+				//Check Packet Validity
+				if (length != bytes - i - 1)
+					throw new Exception("Bad Response: Packet claimed " + length + " bytes but contained " + (bytes - i - 1) + " bytes");
+
+				//Error Packet
+				if (response[i] > 0)
+					throw new Exception("Error Code Returned: " + response[i]);
+
+				//Ignore response data
+				//var responseData = new byte[length];
+				//for (int j = 0; j < length; j++)
+				//	responseData[j] = response[i + j];
+			}
+			catch(Exception x)
+			{
+				Handle(x);
+			}
 		}
-		private static byte[] SendTCP(byte[] packet)
-		{
-			if (tcp == null)
-				tcp = new TcpClient(IP, PORT);
-
-			var stream = tcp.GetStream();
-			stream.Write(packet, 0, packet.Length);
-			byte[] buffer = new byte[256];
-			byte[] response = new byte[stream.Read(buffer, 0, buffer.Length)];
-
-			for (int i = 0; i < response.Length; i++)
-				response[i] = buffer[i];
-
-			return response;
-		}
-		private static void SendCommand(int side, Command command, byte[] data, Action<byte[]> callback = null)
-		{
-			new Task(() =>
-				{
-				try
-				{
-					if (!(side == SideA || side == SideB))
-						throw new ArgumentOutOfRangeException("side", "Side must be " + SideA + " or " + SideB);
-
-					//construct modbus packet to contain AE command (see page 4-35)
-					byte[] packet = new byte[data.Length + 12];
-
-					var transactionId = NextTransactionId++;
-					//transaction ID
-					packet[0] = (byte)(transactionId / 0x100);
-					packet[1] = (byte)(transactionId % 0x100);
-					//Protocol ID (always 0?)
-					packet[2] = 0;
-					packet[3] = 0;
-					//Number of Bytes
-					packet[4] = (byte)((data.Length + 6) / 0x100);
-					packet[5] = (byte)((data.Length + 6) % 0x100);
-					//Unit Id (side)
-					packet[6] = (byte)side;
-					//Function Code (always 100)
-					packet[7] = 100;
-					//ENDIANNESS CHANGES!
-					//AE Command Number
-					packet[8] = (byte)command;
-					//CSR (Padding)
-					packet[9] = 0;
-					//Data Length
-					packet[10] = (byte)(data.Length % 0x100);
-					packet[11] = (byte)(data.Length / 0x100);
-					//Data
-					int i = 12;
-					foreach (byte b in data)
-						packet[i++] = b;
-
-					var response = SendTCP(packet);
-
-					//Check Packet Validity
-					if (response.Length < 9)
-						throw new Exception("Bad Response: Too short");
-					if (response[0] != transactionId / 0x100 || response[1] != transactionId % 0x100)
-						throw new Exception("Bad Response: Wrong transactionId");
-					if (response[4] * 0x100 + response[5] != response.Length - 6)
-						throw new Exception("Bad Response: Packet claimed " + (response[4] * 0x100 + response[5]) + " bytes but contained " + (response.Length - 6) + " bytes");
-
-					//Error Packet
-					if (response[7] == 228)
-						throw new Exception("Error Code Returned: " + response[8]);
-					//Check for function code 100
-					if (response[7] != 100)
-						throw new Exception("Bad Response: Unexpected Function Code: " + response[7]);
-					//Check CSR code
-					if (response[9] != 0)
-						throw new Exception("Error: CSR " + response[9]);
-					//Check Data Length
-					var dataLength = response[10] + response[11] * 0x100;
-					if (dataLength != response.Length - 12)
-						throw new Exception("Bad Response: Data length " + dataLength + " does not equal data received " + (response.Length - 12));
-
-					//Get response data
-					var responseData = new byte[dataLength];
-					for (i = 0; i < dataLength; i++)
-						responseData[i] = response[i + 12];
-					if (callback != null)
-						callback(responseData);
-				}
-				catch (Exception x)
-				{
-					Handle(x);
-					if (callback != null)
-						callback(null);
-				}
-				}).Start();
-		}
-*/
+		
 		private static void Handle(Exception x)
 		{
 			if (Error != null)

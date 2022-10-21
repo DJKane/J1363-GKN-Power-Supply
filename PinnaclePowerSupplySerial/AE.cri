@@ -37,8 +37,11 @@
         <Item Target="AE.Script.cs" Source="Tags.SetCurrentModeB" />
         <Item Target="AE.Script.cs" Source="Tags.EnableA" />
         <Item Target="AE.Script.cs" Source="Tags.EnableB" />
+        <Item Target="AE.Script.cs" Source="Tags.SetSPA" />
         <Item Target="AE.Script.cs" Source="Tags.CurrentA" />
+        <Item Target="AE.Script.cs" Source="Tags.SetSPB" />
         <Item Target="AE.Script.cs" Source="Tags.CurrentB" />
+        <Item Target="AE.Script.cs" Source="Tags.Sending" />
       </Items>
     </Category>
     <Category Name="StructuredTag">
